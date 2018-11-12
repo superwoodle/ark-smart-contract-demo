@@ -8,7 +8,7 @@ Transactions on Ark can only contain small amounts of vendor data. So instead of
 
 This design provides great flexibility with javascript, and keeps the blockchain small. However, it requires an outside provider; IPFS. 
 
-_There is currently no way to pay to a hash/contract, so the account just pays to its self_
+_There is currently no way to pay to a hash/contract, so the account just pays to itself_
 
 # Setup
 
