@@ -11,9 +11,13 @@ const ipfs = ipfsAPI('localhost', '5001', { protocol: 'http' });
 let contractHash;
 
 Promise.resolve()
-    .then(writeContractToIpfs)
+    .then(()=>{
+        console.log('\n\n=====WRITING CONTRACT TO IPFS=====');
+        return writeContractToIpfs();
+    })
     .then(fetchWallet)
     .then(response => {
+        console.log('\n\n=====FETCH WALLET=====');
         console.log(response.data);
         return postTransaction({
             amount: 10,
@@ -22,19 +26,26 @@ Promise.resolve()
             passphrase: 'clay harbor enemy utility margin pretty hub comic piece aerobic umbrella acquire'
         });
     }).then(transaction => {
+        console.log('\n\n=====CREATED TRANSACTION=====');
         console.log(transaction);
         return getTransaction(transaction.id);
     }).then(transaction => {
+        console.log('\n\n=====GET TRANSACTION=====');
         console.log(transaction);
         return getContract(transaction.vendorField);
     }).then(contract => {
+        console.log('\n\n=====LOAD CONTRACT=====');
         console.log(contract);
         return executeContract(contract)
     }).then(transactionId => {
+        console.log('\n\n=====EXECUTED CONTRACT=====');
         console.log(transactionId);
         return getTransaction(transactionId);
     }).then(transaction => {
+        console.log('\n\n=====CONTRACT TRANSACTION=====');
         console.log(transaction);
+        console.log('\n\n=====DONE=====');
+
         return;
     }).catch(err => {
         console.log(error);
