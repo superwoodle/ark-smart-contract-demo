@@ -11,6 +11,8 @@
   "dependencies": {
     "@arkecosystem/client": "https://github.com/chriswoodle/javascript-client.git",
     "@arkecosystem/crypto": "^0.2.4",
+    "body-parser": "^1.18.3",
+    "express": "^4.16.4",
     "ipfs": "^0.33.1",
     "ipfs-api": "^26.1.2",
     "vm2": "^3.6.4"
